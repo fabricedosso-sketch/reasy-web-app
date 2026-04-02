@@ -1,0 +1,114 @@
+.page {
+  min-height: 100vh;
+  background: #FFFFFF;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow-x: hidden;
+}
+
+/* Nav — fixed, content scrolls underneath */
+.navWrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  background: #FFFFFF;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+.nav {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 16px 32px;
+  display: flex;
+  align-items: center;
+}
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+/* Spacer to push content below fixed nav */
+.navSpacer {
+  height: 72px;
+  width: 100%;
+  flex-shrink: 0;
+}
+
+/* Hero */
+.hero {
+  text-align: center;
+  padding: 48px 24px 40px;
+  max-width: 760px;
+  animation: fadeIn 0.6s cubic-bezier(0.22, 1, 0.36, 1) 0.05s both;
+}
+.headline {
+  font-family: 'Poppins', sans-serif;
+  font-size: clamp(36px, 6vw, 48px);
+  font-weight: 800;
+  color: #231725;
+  line-height: 1.5;
+  letter-spacing: -1px;
+  margin-bottom: 20px;
+}
+.accent {
+  color: #1aaa8a;
+}
+.subheadline {
+  font-size: clamp(15px, 2vw, 14px);
+  color: #4b5563;
+  line-height: 1.6;
+  max-width: 580px;
+  margin: 0 auto 36px;
+}
+.cta {
+  display: inline-block;
+  background: #009E89;
+  color: white;
+  font-weight: 600;
+  font-size: 16px;
+  padding: 16px 36px;
+  border-radius: 10px;
+  transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+  box-shadow: 0 4px 20px rgba(26, 170, 138, 0.35);
+}
+.cta:hover {
+  background: #148a6e;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 28px rgba(26, 170, 138, 0.45);
+}
+.cta:active {
+  transform: translateY(0);
+}
+
+/* Preview */
+.preview {
+  width: 100%;
+  max-width: 900px;
+  padding: 0 24px 64px;
+  display: flex;
+  justify-content: center;
+  animation: floatUp 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.2s both;
+}
+
+@keyframes floatUp {
+  from { opacity: 0; transform: translateY(32px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  .headline { font-size: 32px; }
+  .hero { padding: 32px 20px 28px; }
+  .nav { padding: 14px 20px; }
+  .navSpacer { height: 64px; }
+}

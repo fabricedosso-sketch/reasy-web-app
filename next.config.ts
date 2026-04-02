@@ -1,7 +1,7 @@
-import type { NextConfig } from "next";
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+  // Allows access from local network during dev (optional)
+  // allowedDevOrigins: ['192.168.1.8'],
+}
 
-const nextConfig: NextConfig = {
-  /* config options here */
-};
-
-export default nextConfig;
+module.exports = nextConfig

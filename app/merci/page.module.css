@@ -1,0 +1,53 @@
+.page {
+  min-height: 100vh;
+  background: #e8f8f4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+.card {
+  background: white;
+  border-radius: 20px;
+  padding: 56px 48px;
+  max-width: 480px;
+  text-align: center;
+  box-shadow: 0 16px 48px rgba(0,0,0,0.08);
+  animation: pop 0.5s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+@keyframes pop {
+  from { opacity: 0; transform: scale(0.95) translateY(16px); }
+  to { opacity: 1; transform: scale(1) translateY(0); }
+}
+.icon {
+  font-size: 56px;
+  margin-bottom: 20px;
+}
+.title {
+  font-family: 'Poppins', sans-serif;
+  font-size: 28px;
+  font-weight: 800;
+  color: #231725;
+  margin-bottom: 14px;
+}
+.text {
+  font-size: 15px;
+  color: #4b5563;
+  line-height: 1.65;
+  margin-bottom: 32px;
+}
+.btn {
+  display: inline-block;
+  background: #009E89;
+  color: white;
+  font-weight: 600;
+  font-size: 15px;
+  padding: 13px 32px;
+  border-radius: 10px;
+  transition: background 0.2s, transform 0.15s;
+  box-shadow: 0 4px 16px rgba(26, 170, 138, 0.2);
+}
+.btn:hover {
+  background: #148a6e;
+  transform: translateY(-1px);
+}
