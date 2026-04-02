@@ -55,10 +55,10 @@
   margin-bottom: 28px;
 }
 .title {
-  font-family: 'Syne', sans-serif;
+  font-family: 'Poppins', sans-serif;
   font-size: clamp(26px, 3.5vw, 36px);
   font-weight: 800;
-  color: #1a1a2e;
+  color: #232023;
   margin-bottom: 10px;
   line-height: 1.15;
 }
