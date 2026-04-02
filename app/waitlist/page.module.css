@@ -56,7 +56,7 @@
 }
 .title {
   font-family: 'Poppins', sans-serif;
-  font-size: clamp(26px, 3.5vw, 36px);
+  font-size: clamp(26px, 3.5vw, 32px);
   font-weight: 800;
   color: #232023;
   margin-bottom: 10px;
