@@ -1,5 +1,11 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { supabase } from '@/lib/supabase'
+import { createClient } from '@supabase/supabase-js'
+
+// Utilise la SERVICE ROLE KEY côté serveur pour bypasser le RLS
+const supabase = createClient(
+  process.env.NEXT_PUBLIC_SUPABASE_URL!,
+  process.env.SUPABASE_SERVICE_ROLE_KEY!
+)
 
 export async function POST(request: NextRequest) {
   try {
@@ -21,21 +27,7 @@ export async function POST(request: NextRequest) {
       )
     }
 
-    // Check for duplicate
-    const { data: existing } = await supabase
-      .from('waitlist')
-      .select('id')
-      .eq('email', email.toLowerCase().trim())
-      .single()
-
-    if (existing) {
-      return NextResponse.json(
-        { message: "Cet email est déjà inscrit sur la liste d'attente." },
-        { status: 409 }
-      )
-    }
-
-    // Insert new entry
+    // Insert — on laisse Supabase gérer le doublon via la contrainte UNIQUE
     const { error } = await supabase.from('waitlist').insert({
       first_name: firstName.trim(),
       last_name: lastName.trim(),
@@ -43,6 +35,13 @@ export async function POST(request: NextRequest) {
     })
 
     if (error) {
+      // Erreur doublon PostgreSQL : code 23505 = unique_violation
+      if (error.code === '23505') {
+        return NextResponse.json(
+          { message: "Cet email est déjà inscrit sur la liste d'attente." },
+          { status: 409 }
+        )
+      }
       console.error('Supabase insert error:', error)
       return NextResponse.json(
         { message: 'Une erreur est survenue. Réessayez.' },
@@ -50,7 +49,7 @@ export async function POST(request: NextRequest) {
       )
     }
 
-    // Get total count for position
+    // Récupère la position dans la liste
     const { count } = await supabase
       .from('waitlist')
       .select('*', { count: 'exact', head: true })
