@@ -15,8 +15,6 @@
   right: 0;
   z-index: 100;
   background: #FFFFFF;
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
   border-bottom: 1px solid rgba(0,0,0,0.05);
 }
 .nav {
@@ -50,7 +48,7 @@
   font-family: 'Poppins', sans-serif;
   font-size: clamp(36px, 6vw, 48px);
   font-weight: 800;
-  color: #231725;
+  color: #232023;
   line-height: 1.5;
   letter-spacing: -1px;
   margin-bottom: 20px;
@@ -73,13 +71,11 @@
   font-size: 16px;
   padding: 16px 36px;
   border-radius: 10px;
-  transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
-  box-shadow: 0 4px 20px rgba(26, 170, 138, 0.35);
+  transition: background 0.2s, transform 0.15s;
 }
 .cta:hover {
   background: #148a6e;
   transform: translateY(-2px);
-  box-shadow: 0 8px 28px rgba(26, 170, 138, 0.45);
 }
 .cta:active {
   transform: translateY(0);

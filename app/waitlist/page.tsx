@@ -4,7 +4,7 @@ import WaitlistForm from '@/components/WaitlistForm'
 import styles from './page.module.css'
 
 export const metadata = {
-  title: "Rejoindre la liste d'attente — Reasy",
+  title: "Reasy — Rejoindre la liste d'attente",
 }
 
 export default function WaitlistPage() {

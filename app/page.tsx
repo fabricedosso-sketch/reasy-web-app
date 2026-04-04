@@ -30,7 +30,7 @@ export default function Home() {
           Reasy centralise, automatise et simplifie la gestion de tous vos beins locatifs.
         </p>
         <Link href="/waitlist" className={styles.cta}>
-          Rejoindre la liste d&apos;attente
+          Réjoindre la liste d&apos;attente
         </Link>
       </section>
 
