@@ -95,7 +95,7 @@ export async function POST(request: NextRequest) {
         recipients: [{ email: email.toLowerCase().trim(), name: `${firstName.trim()} ${lastName.trim()}` }],
         template_id: TEMPLATE_CONFIRMATION,
         params: {
-          first_name: firstName.trim(),
+          last_name: firstName.trim(),
         },
       }),
 
